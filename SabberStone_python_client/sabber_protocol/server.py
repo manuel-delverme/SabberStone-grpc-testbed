@@ -3,10 +3,10 @@ import socket
 import subprocess
 import time
 
-from sabber_protocol.entities import *
-from sabber_protocol.function import *
-from sabber_protocol.option import *
+from ..sabber_protocol.entities import *
+from ..sabber_protocol.function import *
 from ..sabber_protocol.game import Game
+from ..sabber_protocol.option import *
 
 SERVER_ADDRESS = '/tmp/CoreFxPipe_sabberstoneserver_'
 DEFAULT_SERVER_PATH = 'sb_mm_env/SabberStone_gRPC/'
@@ -33,6 +33,7 @@ class SabberStoneServer:
 
         timeout = time.time() + TIMEOUT
         while True:
+          time.sleep(1.0)
             try:
                 self.socket.connect(uds_path)
                 break
